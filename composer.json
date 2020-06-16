@@ -14,6 +14,11 @@
             "SilNex\\GuLa\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "SilNex\\GuLa\\Tests\\": "tests"
+        }
+    },
     "require-dev": {
         "orchestra/testbench": "^5.0"
     }
