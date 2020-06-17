@@ -11,7 +11,7 @@ class G5ShopWish extends G5Model
      *
      * @var string
      */
-    protected $timestamps = false;
+    public $timestamps = false;
 
     /**
      * 그누보드 테이블
