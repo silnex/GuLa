@@ -14,6 +14,13 @@
             "SilNex\\GuLa\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SilNex\\GuLa\\GuLaServiceProvider\\"
+            ]
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "SilNex\\GuLa\\Tests\\": "tests"
