@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopInicisLog extends Model  
+class G5ShopBanner extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopInicisLog extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_inicis_log';
+    protected $table = 'g5_shop_banner';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['oid', 'P_TID', 'P_MID', 'P_AUTH_DT', 'P_STATUS', 'P_TYPE', 'P_OID', 'P_FN_NM', 'P_AUTH_NO', 'P_AMT', 'P_RMESG1', 'post_data', 'is_mail_send'];
+    protected $fillable = ['bn_id', 'bn_alt', 'bn_url', 'bn_device', 'bn_position', 'bn_border', 'bn_new_win', 'bn_begin_time', 'bn_end_time', 'bn_time', 'bn_hit', 'bn_order'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopInicisLog extends Model
      *
      * @var array
      */
-    protected $dates = [];
+    protected $dates = ['bn_begin_time', 'bn_end_time', 'bn_time'];
 
 }

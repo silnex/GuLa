@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopCouponZone extends Model  
+class G5ShopSendcost extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopCouponZone extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_coupon_zone';
+    protected $table = 'g5_shop_sendcost';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['cz_id', 'cz_type', 'cz_subject', 'cz_start', 'cz_end', 'cz_file', 'cz_period', 'cz_point', 'cp_method', 'cp_target', 'cp_price', 'cp_type', 'cp_trunc', 'cp_minimum', 'cp_maximum', 'cz_download', 'cz_datetime'];
+    protected $fillable = ['sc_id', 'sc_name', 'sc_zip1', 'sc_zip2', 'sc_price'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopCouponZone extends Model
      *
      * @var array
      */
-    protected $dates = ['cz_start', 'cz_end', 'cz_datetime'];
+    protected $dates = [];
 
 }

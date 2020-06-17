@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopSendcost extends Model  
+class G5ShopItemRelation extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopSendcost extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_sendcost';
+    protected $table = 'g5_shop_item_relation';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['sc_id', 'sc_name', 'sc_zip1', 'sc_zip2', 'sc_price'];
+    protected $fillable = ['it_id', 'it_id2', 'ir_no'];
 
     /**
      * 숨길 속성(컬럼)

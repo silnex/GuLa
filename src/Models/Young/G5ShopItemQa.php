@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopItemRelation extends Model  
+class G5ShopItemQa extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopItemRelation extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_item_relation';
+    protected $table = 'g5_shop_item_qa';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['it_id', 'it_id2', 'ir_no'];
+    protected $fillable = ['iq_id', 'it_id', 'mb_id', 'iq_secret', 'iq_name', 'iq_email', 'iq_hp', 'iq_password', 'iq_subject', 'iq_question', 'iq_answer', 'iq_time', 'iq_ip'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopItemRelation extends Model
      *
      * @var array
      */
-    protected $dates = [];
+    protected $dates = ['iq_time'];
 
 }

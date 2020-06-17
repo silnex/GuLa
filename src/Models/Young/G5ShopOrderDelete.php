@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopItemUse extends Model  
+class G5ShopOrderDelete extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopItemUse extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_item_use';
+    protected $table = 'g5_shop_order_delete';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['is_id', 'it_id', 'mb_id', 'is_name', 'is_password', 'is_score', 'is_subject', 'is_content', 'is_time', 'is_ip', 'is_confirm'];
+    protected $fillable = ['de_id', 'de_key', 'de_data', 'mb_id', 'de_ip', 'de_datetime'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopItemUse extends Model
      *
      * @var array
      */
-    protected $dates = ['is_time'];
+    protected $dates = ['de_datetime'];
 
 }

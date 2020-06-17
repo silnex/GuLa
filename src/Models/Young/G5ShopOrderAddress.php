@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopWish extends Model  
+class G5ShopOrderAddress extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopWish extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_wish';
+    protected $table = 'g5_shop_order_address';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['wi_id', 'mb_id', 'it_id', 'wi_time', 'wi_ip'];
+    protected $fillable = ['ad_id', 'mb_id', 'ad_subject', 'ad_default', 'ad_name', 'ad_tel', 'ad_hp', 'ad_zip1', 'ad_zip2', 'ad_addr1', 'ad_addr2', 'ad_addr3', 'ad_jibeon'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopWish extends Model
      *
      * @var array
      */
-    protected $dates = ['wi_time'];
+    protected $dates = [];
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace SilNex\GuLa\Models\Gnu;
+namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopBanner extends Model  
+class G5ShopOrderPostLog extends Model  
 {
     /**
      * 디폴트 타임 스템프 사용 안함
@@ -18,14 +18,14 @@ class G5ShopBanner extends Model
      *
      * @var string
      */
-    protected $table = 'g5_shop_banner';
+    protected $table = 'g5_shop_order_post_log';
 
     /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
      */
-    protected $fillable = ['bn_id', 'bn_alt', 'bn_url', 'bn_device', 'bn_position', 'bn_border', 'bn_new_win', 'bn_begin_time', 'bn_end_time', 'bn_time', 'bn_hit', 'bn_order'];
+    protected $fillable = ['oid', 'mb_id', 'post_data', 'ol_code', 'ol_msg', 'ol_datetime', 'ol_ip'];
 
     /**
      * 숨길 속성(컬럼)
@@ -46,6 +46,6 @@ class G5ShopBanner extends Model
      *
      * @var array
      */
-    protected $dates = ['bn_begin_time', 'bn_end_time', 'bn_time'];
+    protected $dates = ['ol_datetime'];
 
 }
