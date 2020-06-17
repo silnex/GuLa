@@ -2,9 +2,9 @@
 
 namespace SilNex\GuLa\Models\Young;
 
-use Illuminate\Database\Eloquent\Model;
+use SilNex\GuLa\G5Model;
 
-class G5ShopCoupon extends Model
+class G5ShopCoupon extends G5Model
 {
     /**
      * 디폴트 타임 스템프 사용 안함
