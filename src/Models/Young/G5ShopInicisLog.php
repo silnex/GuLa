@@ -4,7 +4,7 @@ namespace SilNex\GuLa\Models\Young;
 
 use Illuminate\Database\Eloquent\Model;
 
-class G5ShopInicisLog extends Model  
+class G5ShopInicisLog extends Model
 {
     /**
      * 디폴트 타임 스템프 사용 안함
