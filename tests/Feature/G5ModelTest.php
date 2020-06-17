@@ -2,14 +2,15 @@
 
 namespace SilNex\GuLa\Tests;
 
-use ReflectionClass;
 use SilNex\GuLa\Models\Gnu\G5Model;
 
 class G5ModelTest extends TestCase
 {
-    public function set_table_test(): void
+    public function test_set_table(): void
     {
-        $g5Model = new ReflectionClass(G5Model::class);
+        $g5Model = new G5Model();
         $g5Model->setTable();
+
+        $this->assertSame('G5Model', $g5Model->getTable());
     }
 }
