@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class G5Model extends Model
 {
-    protected $connection = 'gnuboard';
+    protected $connection = 'gula.connection';
 }
