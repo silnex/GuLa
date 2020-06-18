@@ -10,9 +10,16 @@ class G5ModelTest extends TestCase
     public function test_connection_change()
     {
         $g5Member = new G5Member;
-        dd($g5Member->all());
         $dummy = new DummyModel;
-        dd($dummy->getConnectionName());
+        $this->assertNotSame($g5Member->getConnectionName(), $dummy->getConnectionName());
+    }
+
+    public function test_connection_test()
+    {
+        $g5Member = new G5Member();
+        $g5Member->all();
+        
+        $this->assertTrue(true);
     }
 }
 
