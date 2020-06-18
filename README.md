@@ -1,5 +1,5 @@
 # <p align="center">![GuLa-logo](./gula.png)</p>
-그누보드 개발자를 위한 Laravel Model
+<p align="center">그누보드 개발자를 위한 Laravel Model</p>
 
 ## 사용법
 1. 패키지 설치 `composer require silnex/gula`
@@ -34,4 +34,4 @@ $g5ShopItem->all();
 - [x] Mass Assignment 추가
 - [x] 그누보드 DB connection 분리
 - [x] 로고제작 (임시용)
-- [ ] 로고제작 (정식용)
+- [x] 로고제작 (정식용)
