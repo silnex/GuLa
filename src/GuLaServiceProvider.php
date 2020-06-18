@@ -2,13 +2,15 @@
 
 namespace SilNex\GuLa;
 
-use Illuminate\Support\Arr;
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Support\ServiceProvider;
 
 class GuLaServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->app->useEnvironmentPath(__DIR__ . '/../');
+        $this->app->bootstrapWith([LoadEnvironmentVariables::class]);
         $this->mergeConfigFrom(__DIR__ . '/config/gula.php', 'gula');
         config(['database.connections.gula' => config('gula')]);
     }

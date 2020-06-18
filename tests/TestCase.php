@@ -2,6 +2,7 @@
 
 namespace SilNex\GuLa\Tests;
 
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use SilNex\GuLa\GuLaServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -15,5 +16,12 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return [
             GuLaServiceProvider::class,
         ];
+    }
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app->useEnvironmentPath(__DIR__ . '/../');
+        $app->bootstrapWith([LoadEnvironmentVariables::class]);
+        parent::getEnvironmentSetUp($app);
     }
 }
