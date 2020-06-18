@@ -11,6 +11,7 @@ class GuLaServiceProvider extends ServiceProvider
     {
         $this->app->useEnvironmentPath(__DIR__ . '/../');
         $this->app->bootstrapWith([LoadEnvironmentVariables::class]);
+
         $this->mergeConfigFrom(__DIR__ . '/config/gula.php', 'gula');
         config(['database.connections.gula' => config('gula')]);
     }

@@ -17,11 +17,4 @@ class TestCase extends \Orchestra\Testbench\TestCase
             GuLaServiceProvider::class,
         ];
     }
-
-    protected function getEnvironmentSetUp($app)
-    {
-        $app->useEnvironmentPath(__DIR__ . '/../');
-        $app->bootstrapWith([LoadEnvironmentVariables::class]);
-        parent::getEnvironmentSetUp($app);
-    }
 }
