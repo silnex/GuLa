@@ -29,9 +29,27 @@ $g5ShopItem->all();
 ```
 자세한 사용법은 [Laravel Eloquent](https://laravel.kr/docs/7.x/eloquent) 문서를 참고
 
+## 커스텀 모델 (테이블)
+```php
+<?php
+// App/CustomG5Model.php
+
+namespace App;
+
+use SilNex\GuLa\G5Model;
+
+class CustomG5Table extends G5Model
+{
+    protected $table = 'custom_g5_table';
+
+    // code here
+}
+```
+
 ### Todo
 - [x] 그누보드 모델 추가
 - [x] Mass Assignment 추가
 - [x] 그누보드 DB connection 분리
 - [x] 로고제작 (임시용)
 - [x] 로고제작 (정식용)
+- [ ] 커스텀 모델 artisan:make 커맨드 추가
