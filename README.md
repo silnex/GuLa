@@ -27,7 +27,7 @@ use SilNex\GuLa\Models\Young\G5ShopItem;
 $g5ShopItem = new G5ShopItem;
 $g5ShopItem->all();
 ```
-자세한 사용법은 [Laravel Eloquent](https://laravel.kr/docs/7.x/eloquent) 문서를 참고
+자세한 사용법은 [Laravel Eloquent](https://laravel.kr/docs/eloquent) 문서를 참고
 
 ## 커스텀 모델 (테이블)
 ```php
