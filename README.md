@@ -1,4 +1,4 @@
-# ![GuLa-logo](./gula.png)  
+# <center>![GuLa-logo](./gula.png)</center>
 그누보드 개발자를 위한 Laravel Model
 
 ## 사용법
