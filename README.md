@@ -2,7 +2,7 @@
 그누보드 개발자를 위한 Laravel Model
 
 ## 사용법
-1. 패키지 설치 `composer require SilNex/GuLa`
+1. 패키지 설치 `composer require silnex/gula`
 2. `.env` 설정
 ```env
 GULA_DB_HOST=gnuboard.db.host
