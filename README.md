@@ -67,7 +67,7 @@ $notExistsModel = "\SilNex\GuLa\Gnu\G5WriteFree";
 if (!class_exists($notExistsModel)) {
     $model = explode('\\', $notExistsModel);
     $table = Str::snake(end($model));
-    
+
     $G5WriteFree = new G5ModelFactory(['gula', $table]);
 
     $G5WriteFree->get();
@@ -83,9 +83,15 @@ namespace App;
 
 use SilNex\GuLa\G5Model;
 
-class CustomG5Table extends G5Model
+class G5CustomTable extends G5Model
 {
-    protected $table = 'custom_g5_table';
+    protected $table = 'g5_custom_table';
+
+    // Example relation
+    public function g5Member()
+    {
+        return $this->belongsTo(G5Member::class, 'mb_id', 'mb_id');
+    }
 
     // code here
 }
