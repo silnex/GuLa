@@ -3,6 +3,7 @@
 namespace SilNex\GuLa\Models\Gnu;
 
 use SilNex\GuLa\G5Model;
+use SilNex\GuLa\G5ModelFactory;
 use SilNex\GuLa\Models\Young\G5ShopCart;
 use SilNex\GuLa\Models\Young\G5ShopCategory;
 use SilNex\GuLa\Models\Young\G5ShopCoupon;
@@ -190,5 +191,24 @@ class G5Member extends G5Model
     public function g5ShopOrderPostLogs()
     {
         return $this->hasMany(G5ShopOrderPostLog::class, 'mb_id', 'mb_id');
+    }
+
+    public function __call($method, $parameters)
+    {
+        if (substr($method, 0, 7) === 'g5Write') {
+            $table = \Illuminate\Support\Str::snake($method);
+            return (new G5ModelFactory([$this->connection, $table]))->whereMbId($this->mb_id);
+        }
+
+        // parent::__call($method, $parameters); not work 
+        if (in_array($method, ['increment', 'decrement'])) {
+            return $this->$method(...$parameters);
+        }
+
+        if ($resolver = (static::$relationResolvers[get_class($this)][$method] ?? null)) {
+            return $resolver($this);
+        }
+
+        return $this->forwardCallTo($this->newQuery(), $method, $parameters);
     }
 }

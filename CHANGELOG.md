@@ -1,3 +1,6 @@
+# v0.2.1
+ - G5Member Model `g5_write`로 시작하는 테이블 G5Write 자동 Relationship
+
 # v0.2.0
  - Laravel relation 추가
  - Relation 사용방법 추가

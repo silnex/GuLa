@@ -51,8 +51,8 @@ $admin->g5Points()->get();
 use SilNex\GuLa\G5ModelFactory;
 
 // ['connection', 'table_name']
-$G5WriteFree = new G5ModelFactory(['gula', 'g5_write_free']);
-$G5WriteFree->get();
+$g5WriteFree = new G5ModelFactory(['gula', 'g5_write_free']);
+$g5WriteFree->get();
 ```
 
 혹은 이를 응용해 다음과 같은 방법도 가능합니다.
@@ -68,10 +68,22 @@ if (!class_exists($notExistsModel)) {
     $model = explode('\\', $notExistsModel);
     $table = Str::snake(end($model));
 
-    $G5WriteFree = new G5ModelFactory(['gula', $table]);
+    $g5WriteFree = new G5ModelFactory(['gula', $table]);
 
-    $G5WriteFree->get();
+    $g5WriteFree->get();
 }
+```
+
+### 자동 릴레이션
+그누보드에선 새로운 게시판을 만들때 마다 `g5_write_`으로 시작하는 테이블이 생성된다.
+GuLa에선 이를 자동으로 릴레이션 해준다.
+```php
+<?php
+use SilNex\GuLa\Models\Gnu\G5Member;
+
+$g5Member = new G5Member;
+$admin = $g5Member->where('mb_id', '=', 'admin')->first();
+$admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글을 가져온다.
 ```
 
 ### 커스텀 모델 (테이블)
@@ -105,4 +117,5 @@ class G5CustomTable extends G5Model
 - [x] 로고제작 (정식용)
 - [x] 모델 인스턴스 팩토리 추가
 - [x] 모델별 릴레이션 추가
+- [x] g5_write 테이블 자동 릴레이션
 - [ ] 커스텀 모델 artisan:make 커맨드 추가
