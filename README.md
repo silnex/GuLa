@@ -1,5 +1,5 @@
 # <p align="center">![GuLa-logo](./gula.png)</p>
-<p align="center">그누보드 개발자를 위한 Laravel Model</p>
+<p align="center">그누보드 개발자를 위한 Laravel Models</p>
 
 ## Installation
 1. 패키지 설치 `composer require silnex/gula`
