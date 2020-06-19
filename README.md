@@ -81,6 +81,8 @@ GuLa에선 이를 자동으로 릴레이션 해준다.
 <?php
 use SilNex\GuLa\Models\Gnu\G5Member;
 
+var_dump(class_exists("\SilNex\GuLa\Gnu\G5WriteFree")); // bool(false)
+
 $g5Member = new G5Member;
 $admin = $g5Member->where('mb_id', '=', 'admin')->first();
 $admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글을 가져온다.
