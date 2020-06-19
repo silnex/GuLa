@@ -22,8 +22,7 @@ GULA_COLLATION=utf8mb4_unicode_ci # DB 문자셋 (default: utf8mb4_unicode_ci)
 // 그누보드
 use SilNex\GuLa\Models\Gnu\G5Member;
 $g5Member = new G5Member;
-$g5Member->get();
-$g5Member->where('mb_id', '=', 'admin');
+$g5Member->where('mb_id', '=', 'admin')->get();
 
 // 영카트
 use SilNex\GuLa\Models\Young\G5ShopItem;
@@ -32,8 +31,19 @@ $g5ShopItem->get();
 ```
 자세한 사용법은 [Laravel Eloquent](https://laravel.kr/docs/eloquent) 문서를 참고
 
+### Relationships
+Laravel의 모델의 Relation을 사용해 다른 테이블의  내용을 쉽게 가져올 수 있습니다.
+```php
+<?php
+use SilNex\GuLa\Models\Gnu\G5Member;
+$g5Member = new G5Member;
+
+$admin = $g5Member->where('mb_id', '=', 'admin')->first();
+$admin->g5Points()->get();
+```
+
 ### G5ModelFactory
-미리 생성된 Model이 없는 경우나, 다른 DB에서 가져올 경우  `G5ModelFactory`를 통해 Model 인스턴스를 생성할 수 있습니다. 
+미리 생성된 Model이 없는 경우나, 다른 DB에서 가져올 경우  `G5ModelFactory`를 통해 Model 인스턴스를 생성할 수 있습니다.
 ```php
 <?php
 // Anywhere
