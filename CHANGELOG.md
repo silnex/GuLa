@@ -1,3 +1,7 @@
+# v0.2.0
+ - Laravel relation 추가
+ - Relation 사용방법 추가
+
 # v0.1.0
  - G5ModelFactory class 추가
  - G5ModelFactory 사용방법 추가
