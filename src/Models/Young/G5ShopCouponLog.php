@@ -7,6 +7,7 @@ use SilNex\GuLa\G5Model;
 class G5ShopCouponLog extends G5Model
 {
     use \SilNex\GuLa\Traits\BelongToG5Member;
+    use \SilNex\GuLa\Traits\BelongToG5ShopOrder;
 
     /**
      * 그누보드 테이블
@@ -43,4 +44,8 @@ class G5ShopCouponLog extends G5Model
      */
     protected $dates = ['cl_datetime'];
 
+    public function g5ShopCoupon()
+    {
+        $this->belongsTo(G5ShopCoupon::class, 'cp_id', 'cp_id');
+    }
 }

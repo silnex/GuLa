@@ -7,6 +7,7 @@ use SilNex\GuLa\G5Model;
 class G5ShopItemUse extends G5Model
 {
     use \SilNex\GuLa\Traits\BelongToG5Member;
+    use \SilNex\GuLa\Traits\BelongToG5ShopItem;
 
     /**
      * 그누보드 테이블
@@ -42,5 +43,4 @@ class G5ShopItemUse extends G5Model
      * @var array
      */
     protected $dates = ['is_time'];
-
 }

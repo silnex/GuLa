@@ -40,5 +40,9 @@ class G5ShopCouponZone extends G5Model
      * @var array
      */
     protected $dates = ['cz_start', 'cz_end', 'cz_datetime'];
-
+    
+    public function g5ShopCoupons()
+    {
+        return $this->hasMany(G5ShopCoupon::class, 'cz_id', 'cz_id');
+    }
 }

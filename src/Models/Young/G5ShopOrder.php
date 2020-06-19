@@ -43,4 +43,28 @@ class G5ShopOrder extends G5Model
      */
     protected $dates = ['od_receipt_time', 'od_hope_date', 'od_invoice_time', 'od_time'];
 
+    public function g5ShopCart()
+    {
+        return $this->hasMany(G5ShopCart::class, 'od_id', 'od_id');
+    }
+
+    public function g5ShopCoupon()
+    {
+        return $this->hasMany(G5ShopCoupon::class, 'od_id', 'od_id');
+    }
+
+    public function g5ShopCouponLog()
+    {
+        return $this->hasMany(G5ShopCouponLog::class, 'od_id', 'od_id');
+    }
+
+    public function g5ShopOrderData()
+    {
+        return $this->hasMany(G5ShopOrderData::class, 'od_id', 'od_id');
+    }
+
+    public function g5ShopPersonalpay()
+    {
+        return $this->hasMany(G5ShopPersonalpay::class, 'od_id', 'od_id');
+    }
 }

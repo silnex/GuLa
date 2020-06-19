@@ -80,12 +80,7 @@ class G5Member extends G5Model
 
     public function g5Groups()
     {
-        return $this->hasMany(G5Group::class, 'gr_admin', 'mb_id');
-    }
-
-    public function g5GroupMembers()
-    {
-        return $this->belongsToMany(G5GroupMember::class, 'g5_group_member', 'mb_id', 'gr_id');
+        return $this->belongsToMany(G5Group::class, 'g5_group_member', 'mb_id', 'gr_id');
     }
 
     public function g5Logins()

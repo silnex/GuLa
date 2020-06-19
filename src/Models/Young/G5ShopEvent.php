@@ -41,4 +41,8 @@ class G5ShopEvent extends G5Model
      */
     protected $dates = [];
 
+    public function g5ShopItems()
+    {
+        return $this->belongsToMany(G5ShopEvent::class, 'g5_shop_event_item', 'ev_id', 'it_id');
+    }
 }

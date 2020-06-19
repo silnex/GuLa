@@ -6,6 +6,8 @@ use SilNex\GuLa\G5Model;
 
 class G5ShopPersonalpay extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5ShopOrder;
+
     /**
      * 그누보드 테이블
      *
@@ -40,5 +42,4 @@ class G5ShopPersonalpay extends G5Model
      * @var array
      */
     protected $dates = ['pp_receipt_time', 'pp_time'];
-
 }

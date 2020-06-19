@@ -6,6 +6,8 @@ use SilNex\GuLa\G5Model;
 
 class G5ShopItemStocksms extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5ShopItem;
+
     /**
      * 그누보드 테이블
      *
@@ -40,5 +42,4 @@ class G5ShopItemStocksms extends G5Model
      * @var array
      */
     protected $dates = ['ss_send_time', 'ss_datetime'];
-
 }

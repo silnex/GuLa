@@ -41,4 +41,58 @@ class G5ShopItem extends G5Model
      */
     protected $dates = ['it_time', 'it_update_time'];
 
+    public function g5ShopCarts()
+    {
+        return $this->hasMany(G5ShopCart::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopEvents()
+    {
+        return $this->belongsToMany(G5ShopEvent::class, 'g5_shop_event_item', 'it_id', 'ev_id');
+    }
+
+    public function g5ShopItemOptions()
+    {
+        return $this->hasMany(G5ShopItemOption::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopItemUses()
+    {
+        return $this->hasMany(G5ShopItemUse::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopItemQas()
+    {
+        return $this->hasMany(G5ShopItemQa::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopItemRelations()
+    {
+        return $this->belongsToMany(G5ShopItem::class, 'g5_shop_item_relation', 'it_id', 'it_id2');
+    }
+
+    public function g5ShopWishs()
+    {
+        return $this->hasMany(G5ShopWish::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopItemStocksms()
+    {
+        return $this->hasMany(G5ShopItemStocksms::class, 'it_id', 'it_id');
+    }
+
+    public function g5ShopCategoryLevel1()
+    {
+        return $this->belongsTo(G5ShopCategory::class, 'ca_id', 'ca_id1');
+    }
+
+    public function g5ShopCategoryLevel2()
+    {
+        return $this->belongsTo(G5ShopCategory::class, 'ca_id', 'ca_id2');
+    }
+
+    public function g5ShopCategoryLevel3()
+    {
+        return $this->belongsTo(G5ShopCategory::class, 'ca_id', 'ca_id3');
+    }
 }

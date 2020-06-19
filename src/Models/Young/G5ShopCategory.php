@@ -45,4 +45,18 @@ class G5ShopCategory extends G5Model
      */
     protected $dates = [];
 
+    public function g5ShopItemsLevel1()
+    {
+        return $this->hasMany(G5ShopItem::class, 'ca_id', 'ca_id');
+    }
+
+    public function g5ShopItemsLevel2()
+    {
+        return $this->hasMany(G5ShopItem::class, 'ca_id2', 'ca_id');
+    }
+
+    public function g5ShopItemsLevel3()
+    {
+        return $this->hasMany(G5ShopItem::class, 'ca_id3', 'ca_id');
+    }
 }

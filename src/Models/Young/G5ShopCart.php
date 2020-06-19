@@ -7,6 +7,8 @@ use SilNex\GuLa\G5Model;
 class G5ShopCart extends G5Model
 {
     use \SilNex\GuLa\Traits\BelongToG5Member;
+    use \SilNex\GuLa\Traits\BelongToG5ShopItem;
+    use \SilNex\GuLa\Traits\BelongToG5ShopOrder;
 
     /**
      * 그누보드 테이블
@@ -42,5 +44,4 @@ class G5ShopCart extends G5Model
      * @var array
      */
     protected $dates = ['ct_time', 'ct_select_time'];
-
 }
