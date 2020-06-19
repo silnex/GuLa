@@ -6,6 +6,10 @@ use SilNex\GuLa\G5Model;
 
 class G5ShopCategory extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
+    protected $g5MemberForeignKey = 'ca_mb_id';
+
     /**
      * 그누보드 테이블
      *

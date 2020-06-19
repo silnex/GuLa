@@ -6,6 +6,10 @@ use SilNex\GuLa\G5Model;
 
 class G5Board extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
+    protected $g5MemberForeignKey = 'bo_admin';
+
     /**
      * 그누보드 테이블
      *
@@ -41,4 +45,23 @@ class G5Board extends G5Model
      */
     protected $dates = [];
 
+    public function g5BoardFile()
+    {
+        return $this->hasMany(G5BoardFile::class, 'bo_table', 'bo_table');
+    }
+
+    public function g5BoardNew()
+    {
+        return $this->hasMany(G5BoardNew::class, 'bo_table', 'bo_table');
+    }
+
+    public function g5BoardGood()
+    {
+        return $this->hasMany(G5BoardGood::class, 'bo_table', 'bo_table');
+    }
+
+    public function g5Scrap()
+    {
+        return $this->hasMany(G5Scrap::class, 'bo_table', 'bo_table');
+    }
 }

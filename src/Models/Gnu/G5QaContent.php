@@ -6,6 +6,8 @@ use SilNex\GuLa\G5Model;
 
 class G5QaContent extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
     /**
      * 그누보드 테이블
      *
@@ -41,4 +43,13 @@ class G5QaContent extends G5Model
      */
     protected $dates = ['qa_datetime'];
 
+    public function child()
+    {
+        $this->hasOne(self::class, 'qa_parent', 'qa_id');
+    }
+
+    public function parent()
+    {
+        $this->hasOne(self::class, 'qa_id', 'qa_parent');
+    }
 }

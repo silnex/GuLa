@@ -41,4 +41,8 @@ class G5Poll extends G5Model
      */
     protected $dates = ['po_date'];
 
+    public function g5PollEtcs()
+    {
+        return $this->hasMany(G5PollEtc::class, 'po_id', 'po_id');
+    }
 }

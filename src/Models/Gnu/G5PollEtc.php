@@ -6,6 +6,8 @@ use SilNex\GuLa\G5Model;
 
 class G5PollEtc extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
     /**
      * 그누보드 테이블
      *
@@ -41,4 +43,8 @@ class G5PollEtc extends G5Model
      */
     protected $dates = ['pc_datetime'];
 
+    public function g5Poll()
+    {
+        return $this->belongsTo(G5Poll::class, 'po_id', 'po_id');
+    }
 }

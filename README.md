@@ -88,4 +88,5 @@ class CustomG5Table extends G5Model
 - [x] 로고제작 (임시용)
 - [x] 로고제작 (정식용)
 - [x] 모델 인스턴스 팩토리 추가
+- [ ] 모델별 릴레이션 추가
 - [ ] 커스텀 모델 artisan:make 커맨드 추가

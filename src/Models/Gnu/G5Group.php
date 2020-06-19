@@ -6,6 +6,10 @@ use SilNex\GuLa\G5Model;
 
 class G5Group extends G5Model
 {
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
+    protected $g5MemberForeignKey = 'gr_admin';
+
     /**
      * 그누보드 테이블
      *
@@ -41,4 +45,13 @@ class G5Group extends G5Model
      */
     protected $dates = [];
 
+    public function g5Board()
+    {
+        return $this->hasMany(G5Board::class, 'gr_id', 'gr_id');
+    }
+
+    public function g5Members()
+    {
+        return $this->belongsToMany(G5Member::class, 'g5_group_member', 'gr_id', 'mb_id');
+    }
 }

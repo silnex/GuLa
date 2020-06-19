@@ -41,4 +41,14 @@ class G5Memo extends G5Model
      */
     protected $dates = ['me_send_datetime', 'me_read_datetime'];
 
+    public function g5MemberSender()
+    {
+        return $this->belongsTo(G5Member::class, 'me_send_mb_id');
+    }
+
+    public function g5MemberReceiver()
+    {
+        return $this->belongsTo(G5Member::class, 'me_recv_mb_id');
+    }
+
 }

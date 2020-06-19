@@ -40,5 +40,4 @@ class G5GroupMember extends G5Model
      * @var array
      */
     protected $dates = ['gm_datetime'];
-
 }
