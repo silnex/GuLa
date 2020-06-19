@@ -12,7 +12,7 @@ class G5RealtionTest extends TestCase
 
         $admin = $g5Member->where('mb_id', '=', 'admin')->first();
 
-        dd($admin->g5Points()->first());
+        $admin->g5Points()->first();
 
         $this->assertTrue(true);
     }
