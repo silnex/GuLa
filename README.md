@@ -89,11 +89,36 @@ $admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글�
 ```
 
 ### 커스텀 모델 (테이블)
+#### 커맨드 생성
+그누보드의 게시판 생성시 `g5_write_free`와 같은 자동생성되는 테이블들은  
+`php artisan:g5write {board}`를 통해서 `G5Model`을 생성 할 수 있습니다.
+##### 예시
+```bash
+php artisan:g5write free
+```
+```php
+/** app/G5WriteModels/G5WriteFree.php */
+
+<?php
+
+namespace App\G5WriteModels;
+
+use SilNex\GuLa\G5Model;
+
+class G5WriteFree extends G5Model
+{
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
+    protected $table = 'g5_write_free';
+}
+
+```
+#### 수동 생성
 ```php
 <?php
-// App/CustomG5Model.php
+// app/G5WriteModels/CustomG5Model.php
 
-namespace App;
+namespace App\G5WriteModels;
 
 use SilNex\GuLa\G5Model;
 
@@ -110,6 +135,7 @@ class G5CustomTable extends G5Model
     // code here
 }
 ```
+
 
 ### Todo
 - [x] 그누보드 모델 추가
