@@ -10,6 +10,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
     }
+
     protected function getPackageProviders($app)
     {
         return [

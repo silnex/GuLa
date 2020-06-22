@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ namespace }};
+
+use SilNex\GuLa\G5Model;
+
+class {{ class }} extends G5Model
+{
+    use \SilNex\GuLa\Traits\BelongToG5Member;
+
+    protected $table = '{{ table }}';
+}

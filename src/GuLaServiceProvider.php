@@ -4,6 +4,7 @@ namespace SilNex\GuLa;
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Support\ServiceProvider;
+use SilNex\GuLa\Console\GenerateG5WriteModel;
 
 class GuLaServiceProvider extends ServiceProvider
 {
@@ -23,5 +24,9 @@ class GuLaServiceProvider extends ServiceProvider
                 __DIR__ . '/config/gula.php' => config_path('gula.php'),
             ], 'config');
         }
+
+        $this->commands([
+            GenerateG5WriteModel::class,
+        ]);
     }
 }
