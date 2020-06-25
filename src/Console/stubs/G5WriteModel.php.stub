@@ -3,10 +3,11 @@
 namespace {{ namespace }};
 
 use SilNex\GuLa\G5Model;
+use SilNex\GuLa\Traits\BelongToG5Member;
 
 class {{ class }} extends G5Model
 {
-    use \SilNex\GuLa\Traits\BelongToG5Member;
+    use BelongToG5Member;
 
     protected $table = '{{ table }}';
 }

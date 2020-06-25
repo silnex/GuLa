@@ -27,10 +27,11 @@ class GenerateG5WriteModelTest extends TestCase
 namespace App\G5WriteModels;
 
 use SilNex\GuLa\G5Model;
+use SilNex\GuLa\Traits\BelongToG5Member;
 
 class G5WriteFree extends G5Model
 {
-    use \SilNex\GuLa\Traits\BelongToG5Member;
+    use BelongToG5Member;
 
     protected \$table = 'g5_write_free';
 }
