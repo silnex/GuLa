@@ -1,0 +1,38 @@
+<?php
+
+namespace {{ namespace }};
+
+use SilNex\GuLa\G5Model;
+
+class {{ class }} extends G5Model
+{
+    protected $table = '{{ table }}';
+
+    /**
+     * 할당(수정) 불가능한 속성(컬럼)
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
+     * 숨길 속성(컬럼)
+     *
+     * @var array
+     */
+    protected $hidden = [];
+
+    /**
+     * 속성별 결과 변환 설정
+     *
+     * @var array
+     */
+    protected $casts = [];
+
+    /**
+     * 시간 속성(컬럼)
+     *
+     * @var array
+     */
+    protected $dates = [];
+}
