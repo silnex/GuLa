@@ -175,4 +175,4 @@ $g5WriteFree->comments();
 - [x] 모델 인스턴스 팩토리 추가
 - [x] 모델별 릴레이션 추가
 - [x] g5_write 테이블 자동 릴레이션
-- [ ] 커스텀 모델 artisan:make 커맨드 추가
+- [x] 커스텀 모델 artisan:make 커맨드 추가
