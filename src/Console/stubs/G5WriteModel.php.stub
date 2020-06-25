@@ -39,13 +39,23 @@ class {{ class }} extends G5Model
      */
     protected $dates = ['wr_datetime'];
 
+    /**
+     * 댓글 리스트
+     */
     public function comments()
     {
         return $this->hasMany({{ class }}::class, 'wr_parent', 'wr_id');
     }
 
+    /**
+     * 댓글이라면, 게시글을 보여줌
+     */
     public function parent()
     {
-        return $this->belongsTo({{ class }}::class, 'wr_id', 'wr_parent');
+        if ($this->wr_is_comment) {
+            return $this->belongsTo({{ class }}::class, 'wr_id', 'wr_parent');
+        } else {
+            throw new \Exception("해당 글은 댓글이 아닙니다.");
+        }
     }
 }

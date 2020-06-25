@@ -63,14 +63,24 @@ class G5WriteFree extends G5Model
      */
     protected \$dates = ['wr_datetime'];
 
+    /**
+     * 댓글 리스트
+     */
     public function comments()
     {
         return \$this->hasMany(G5WriteFree::class, 'wr_parent', 'wr_id');
     }
 
+    /**
+     * 댓글이라면, 게시글을 보여줌
+     */
     public function parent()
     {
-        return \$this->belongsTo(G5WriteFree::class, 'wr_id', 'wr_parent');
+        if (\$this->wr_is_comment) {
+            return \$this->belongsTo(G5WriteFree::class, 'wr_id', 'wr_parent');
+        } else {
+            throw new \Exception("해당 글은 댓글이 아닙니다.");
+        }
     }
 }
 
