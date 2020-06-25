@@ -90,7 +90,7 @@ $admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글�
 
 ### 커스텀 모델 (테이블)
 커스텀 모델을 직접 만들지 않고 커맨드로 생성 할 수 있습니다.
-#### 커맨드 생성
+#### 모델 생성
 커맨드 `php artisan g5model:write {table_name}`를 입력하면 `app/G5Models`에 모델이 생성 됩니다.  
 ##### 예시
 ```bash
