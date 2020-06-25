@@ -9,7 +9,7 @@ class GenerateG5WriteModelTest extends TestCase
 {
     public function test_generate_g5_write_model()
     {
-        $g5WriteFreeFile = app_path('G5WriteModels/G5WriteFree.php');
+        $g5WriteFreeFile = app_path('G5Models/G5WriteFree.php');
 
         if (File::exists($g5WriteFreeFile)) {
             unlink($g5WriteFreeFile);
@@ -24,7 +24,7 @@ class GenerateG5WriteModelTest extends TestCase
         $expectedContents = <<<CLASS
 <?php
 
-namespace App\G5WriteModels;
+namespace App\G5Models;
 
 use SilNex\GuLa\G5Model;
 use SilNex\GuLa\Traits\BelongToG5Member;

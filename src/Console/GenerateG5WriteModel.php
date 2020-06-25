@@ -18,7 +18,7 @@ class GenerateG5WriteModel extends GeneratorCommand
 
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\G5WriteModels';
+        return $rootNamespace . '\G5Models';
     }
 
     protected function getNameInput()
