@@ -1,3 +1,7 @@
+# v1.0.0
+ - 커맨드 `g5model:make {table_name}`과 `g5model:write {board}`과 커맨드 추가
+ - 커맨드 사용법 추가
+
 # v0.2.1
  - G5Member Model `g5_write`로 시작하는 테이블 G5Write 자동 Relationship
 
