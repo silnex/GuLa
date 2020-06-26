@@ -219,21 +219,21 @@ class G5Member extends G5Model
 
     public function __call($method, $parameters)
     {
-        if (substr($method, 0, 7) === 'g5Write') {
-            if (substr($method, -5, 5) === 'Posts' && $method !== 'g5WritePosts') {
-                $class = Str::of($method)->studly()->replace('Posts', '');
-                $this->g5WriteRelationalMethods[$method] = \Closure::bind(function () use ($class) {
-                    return $this->hasMany('App\\G5Models\\' . $class, 'mb_id', 'mb_id');
-                }, $this, get_class());
+        if (substr($method, 0, 7) === 'g5Write' && ctype_alpha($method)) {
+            $class = 'App\\G5Models\\' . Str::studly($method);
 
-                if (is_callable($this->g5WriteRelationalMethods[$method])) {
-                    return call_user_func_array($this->g5WriteRelationalMethods[$method], $parameters);
-                } else {
-                    throw new \Exception("Dynamic method append error");
-                }
+            if (!class_exists($class)) {
+                eval('namespace App\\G5Models; class ' . Str::studly($method) . ' extends \SilNex\GuLa\G5Model {} ');
+            }
+
+            $this->g5WriteRelationalMethods[$method] = \Closure::bind(function () use ($class) {
+                return $this->hasMany($class, 'mb_id', 'mb_id');
+            }, $this, get_class());
+
+            if (is_callable($this->g5WriteRelationalMethods[$method])) {
+                return call_user_func_array($this->g5WriteRelationalMethods[$method], $parameters);
             } else {
-                $table = Str::snake($method);
-                return (new G5ModelFactory([$this->connection, $table]))->whereMbId($this->mb_id);
+                throw new \Exception("Dynamic method append error");
             }
         }
 
