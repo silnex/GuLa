@@ -9,22 +9,22 @@ class G5ModelFactoryTest extends TestCase
 {
     public function test_g5model_factory()
     {
-        $G5WriteEvent = new G5ModelFactory(['gula', 'g5_write_event']);
+        $G5WriteFree = new G5ModelFactory(['gula', 'g5_write_free']);
 
-        $this->assertTrue($G5WriteEvent->count() > 0);
+        $this->assertTrue($G5WriteFree->count() > 0);
     }
 
     public function test_g5model_auto()
     {
-        $notExistsModel = "\SilNex\GuLa\Gnu\G5WriteEvent";
+        $notExistsModel = "\SilNex\GuLa\Gnu\G5WriteFree";
 
         if (!class_exists($notExistsModel)) {
             $model = explode('\\', $notExistsModel);
             $table = Str::snake(end($model));
             
-            $G5WriteEvent = new G5ModelFactory(['gula', $table]);
+            $G5WriteFree = new G5ModelFactory(['gula', $table]);
 
-            $this->assertTrue($G5WriteEvent->count() > 0);
+            $this->assertTrue($G5WriteFree->count() > 0);
         }
     }
 }
