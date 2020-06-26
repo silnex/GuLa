@@ -25,7 +25,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SilNex\\GuLa\\Tests\\": "tests"
+            "SilNex\\GuLa\\Tests\\": "tests",
+            "App\\": "vendor/orchestra/testbench-core/laravel/app"
         }
     },
     "require-dev": {

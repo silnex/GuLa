@@ -2,6 +2,7 @@
 
 namespace SilNex\GuLa\Models\Gnu;
 
+use Illuminate\Support\Str;
 use SilNex\GuLa\G5Model;
 use SilNex\GuLa\G5ModelFactory;
 use SilNex\GuLa\Models\Young\G5ShopCart;
@@ -27,6 +28,22 @@ class G5Member extends G5Model
     protected $table = 'g5_member';
 
     /**
+     * PRIMARY KEY 설정
+     * 실제 PK는 mb_no이지만 릴레이션이 대부분 mb_id로 이루어져있어
+     * mb_id로 설정함
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'mb_id';
+
+    /**
+     * mb_id로 PK를 설정했기 때문에 incrementing를 꺼야한다.
+     * 
+     * @var string
+     */
+    public $incrementing = false;
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
@@ -46,6 +63,13 @@ class G5Member extends G5Model
      * @var array
      */
     protected $casts = [];
+
+    /**
+     * Closure 메소드 추가를 위한 property
+     * 
+     * @var array
+     */
+    protected $g5WriteRelationalMethods = [];
 
     /**
      * 시간 속성(컬럼)
@@ -196,8 +220,21 @@ class G5Member extends G5Model
     public function __call($method, $parameters)
     {
         if (substr($method, 0, 7) === 'g5Write') {
-            $table = \Illuminate\Support\Str::snake($method);
-            return (new G5ModelFactory([$this->connection, $table]))->whereMbId($this->mb_id);
+            if (substr($method, -5, 5) === 'Posts' && $method !== 'g5WritePosts') {
+                $class = Str::of($method)->studly()->replace('Posts', '');
+                $this->g5WriteRelationalMethods[$method] = \Closure::bind(function () use ($class) {
+                    return $this->hasMany('App\\G5Models\\' . $class, 'mb_id', 'mb_id');
+                }, $this, get_class());
+
+                if (is_callable($this->g5WriteRelationalMethods[$method])) {
+                    return call_user_func_array($this->g5WriteRelationalMethods[$method], $parameters);
+                } else {
+                    throw new \Exception("Dynamic method append error");
+                }
+            } else {
+                $table = Str::snake($method);
+                return (new G5ModelFactory([$this->connection, $table]))->whereMbId($this->mb_id);
+            }
         }
 
         // parent::__call($method, $parameters); not work 
