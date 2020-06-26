@@ -1,3 +1,7 @@
+# v1.1.0
+ - G5Member primary key를 mb_id로 변경
+ - G5Write 모델 추가없이 자동 릴레이션 기능 개선 (구라(ㅎ)에서 진짜로)
+
 # v1.0.0
  - 커맨드 `g5model:make {table_name}`과 `g5model:write {board}`과 커맨드 추가
  - 커맨드 사용법 추가

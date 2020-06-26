@@ -75,8 +75,8 @@ if (!class_exists($notExistsModel)) {
 ```
 
 ### 자동 릴레이션
-그누보드에선 새로운 게시판을 만들때 마다 `g5_write_`으로 시작하는 테이블이 생성된다.
-GuLa에선 이를 자동으로 릴레이션 해준다.
+그누보드에선 새로운 게시판을 만들때 마다 `g5_write_`으로 시작하는 테이블이 생성됩니다.
+GuLa에선 이를 자동으로 릴레이션 해줍니다.
 ```php
 <?php
 use SilNex\GuLa\Models\Gnu\G5Member;
@@ -85,7 +85,10 @@ var_dump(class_exists("\SilNex\GuLa\Gnu\G5WriteFree")); // bool(false)
 
 $g5Member = new G5Member;
 $admin = $g5Member->where('mb_id', '=', 'admin')->first();
-$admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글을 가져온다.
+$admin->g5WriteFree()->first(); // g5_write_free의 mb_id가 admin인 게시글을 가져옵니다.
+
+// 여러 테이블에서 가져올 수 있습니다.
+$admin->with('g5WriteFree', 'g5WriteNotice', 'g5WriteQa')->get();
 ```
 
 ### 커스텀 모델 (테이블)
