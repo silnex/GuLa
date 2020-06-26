@@ -10,7 +10,7 @@ class G5RealtionTest extends TestCase
     {
         $g5Member = new G5Member;
 
-        $admin = $g5Member->where('mb_id', '=', 'admin')->first();
+        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
 
         $admin->g5Points()->first();
 
