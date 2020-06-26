@@ -4,7 +4,6 @@ namespace SilNex\GuLa\Models\Gnu;
 
 use Illuminate\Support\Str;
 use SilNex\GuLa\G5Model;
-use SilNex\GuLa\G5ModelFactory;
 use SilNex\GuLa\Models\Young\G5ShopCart;
 use SilNex\GuLa\Models\Young\G5ShopCategory;
 use SilNex\GuLa\Models\Young\G5ShopCoupon;
@@ -17,6 +16,7 @@ use SilNex\GuLa\Models\Young\G5ShopOrderData;
 use SilNex\GuLa\Models\Young\G5ShopOrderDelete;
 use SilNex\GuLa\Models\Young\G5ShopOrderPostLog;
 use SilNex\GuLa\Models\Young\G5ShopWish;
+use SilNex\GuLa\Traits\BelongToG5Member;
 
 class G5Member extends G5Model
 {
@@ -219,11 +219,42 @@ class G5Member extends G5Model
 
     public function __call($method, $parameters)
     {
-        if (substr($method, 0, 7) === 'g5Write' && ctype_alpha($method)) {
+        if (substr($method, 0, 7) === 'g5Write') {
+            global $silnexGuLaTempTable;
             $class = 'App\\G5Models\\' . Str::studly($method);
+            $silnexGuLaTempTable = Str::snake($method);
 
             if (!class_exists($class)) {
-                eval('namespace App\\G5Models; class ' . Str::studly($method) . ' extends \SilNex\GuLa\G5Model {} ');
+                $anonymousClass = new class extends G5Model
+                {
+                    use BelongToG5Member;
+
+                    protected $guarded = [];
+                    protected $dates = ['wr_datetime'];
+
+                    public function __construct()
+                    {
+                        global $silnexGuLaTempTable;
+
+                        $this->setTable($silnexGuLaTempTable);
+                        parent::__construct();
+                    }
+
+                    public function comments()
+                    {
+                        return $this->hasMany(self::class, 'wr_parent', 'wr_id');
+                    }
+
+                    public function parent()
+                    {
+                        if ($this->wr_is_comment) {
+                            return $this->belongsTo(self::class, 'wr_id', 'wr_parent');
+                        } else {
+                            throw new \Exception("해당 글은 댓글이 아닙니다.");
+                        }
+                    }
+                };
+                $class = get_class($anonymousClass);
             }
 
             $this->g5WriteRelationalMethods[$method] = \Closure::bind(function () use ($class) {
