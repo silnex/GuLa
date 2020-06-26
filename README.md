@@ -179,3 +179,4 @@ $g5WriteFree->comments();
 - [x] 모델별 릴레이션 추가
 - [x] g5_write 테이블 자동 릴레이션
 - [x] 커스텀 모델 artisan:make 커맨드 추가
+- [ ] DB에 있는 g5_write_ 테이블 모델 일괄 생성 커맨드 추가
