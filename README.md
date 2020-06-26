@@ -107,7 +107,7 @@ use SilNex\GuLa\G5Model;
 
 class MyG5CustomTable extends G5Model
 {
-    protected $table = 'g5_my_model';
+    protected $table = 'my_g5_custom_table';
 
     // ... 그외 MyG5CustomTable에 필요한 사항들
 }
