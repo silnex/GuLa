@@ -4,6 +4,7 @@ namespace SilNex\GuLa;
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Illuminate\Support\ServiceProvider;
+use SilNex\GuLa\Console\AutoGenerateG5WriteModels;
 use SilNex\GuLa\Console\GenerateG5CustomModel;
 use SilNex\GuLa\Console\GenerateG5WriteModel;
 
@@ -29,6 +30,7 @@ class GuLaServiceProvider extends ServiceProvider
         $this->commands([
             GenerateG5WriteModel::class,
             GenerateG5CustomModel::class,
+            AutoGenerateG5WriteModels::class,
         ]);
     }
 }
