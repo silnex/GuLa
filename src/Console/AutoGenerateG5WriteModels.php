@@ -4,7 +4,6 @@ namespace SilNex\GuLa\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Artisan;
 use SilNex\GuLa\Models\Gnu\G5Board;
 
 class AutoGenerateG5WriteModels extends Command
@@ -18,7 +17,10 @@ class AutoGenerateG5WriteModels extends Command
         $boards = Arr::flatten(G5Board::select('bo_table')->get()->toArray());
 
         foreach ($boards as $board) {
-            Artisan::command('g5model:write ' . $board);
+            $this->info("{$board} 게시판 모델을 생성합니다.");
+            $this->call('g5model:write', ['name' => $board]);
         }
+
+        $this->info("모든 게시판 모델이 생성되었습니다.");
     }
 }
