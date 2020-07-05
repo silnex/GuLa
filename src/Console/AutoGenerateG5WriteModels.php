@@ -17,10 +17,10 @@ class AutoGenerateG5WriteModels extends Command
         $boards = Arr::flatten(G5Board::select('bo_table')->get()->toArray());
 
         foreach ($boards as $board) {
-            $this->info("{$board} 게시판 모델을 생성합니다.");
+            $this->info(" {$board} 게시판 모델을 생성합니다.");
             $this->call('g5model:write', ['name' => $board]);
         }
 
-        $this->info("모든 게시판 모델이 생성되었습니다.");
+        $this->info(" 모든 게시판 모델이 생성되었습니다.");
     }
 }
