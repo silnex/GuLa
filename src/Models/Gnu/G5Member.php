@@ -217,9 +217,22 @@ class G5Member extends G5Model
         return $this->hasMany(G5ShopOrderPostLog::class, 'mb_id', 'mb_id');
     }
 
+    public function isG5Write($string)
+    {
+        return substr($string, 0, 7) === 'g5Write';
+    }
+
+    public function __get($key)
+    {
+        if ($this->isG5Write($key)) {
+            return $this->$key()->get();
+        }
+        parent::__get($key);
+    }
+
     public function __call($method, $parameters)
     {
-        if (substr($method, 0, 7) === 'g5Write') {
+        if ($this->isG5Write($method)) {
             global $silnexGuLaTempTable;
             $class = 'App\\G5Models\\' . Str::studly($method);
             $silnexGuLaTempTable = Str::snake($method);

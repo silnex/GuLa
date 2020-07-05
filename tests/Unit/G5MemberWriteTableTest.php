@@ -55,4 +55,20 @@ class G5MemberWriteTableTest extends TestCase
         $admin->with($boards)->get();
         $this->assertTrue(true);
     }
+
+    public function test_g5_write_table_relation_value_without_model_file()
+    {
+        $boards = G5Board::select('bo_table')->get()->map(function ($table) {
+            $g5WriteFile = app_path('G5Models/G5Write' . Str::title($table->bo_table));
+            if (File::exists($g5WriteFile)) {
+                unlink($g5WriteFile);
+            }
+
+            return 'g5Write' . Str::title($table->bo_table);
+        })->toArray();
+
+        $g5Member = new G5Member;
+        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
+        $this->assertNotNull($admin->g5WriteFree);
+    }
 }
