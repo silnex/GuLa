@@ -168,6 +168,8 @@ $g5WriteFree = new G5Writ1eFree;
 $g5WriteFree->comments();
 ```
 
+#### g5_board테이블에 있는 모든 게시판 생성
+`php artisan g5model:write-all` 명령어를 통해 자동으로 그누보드의 게시판 모델을 생성해 줄수 있습니다.
 
 ### Todo
 - [x] 그누보드 모델 추가
@@ -179,4 +181,4 @@ $g5WriteFree->comments();
 - [x] 모델별 릴레이션 추가
 - [x] g5_write 테이블 자동 릴레이션
 - [x] 커스텀 모델 artisan:make 커맨드 추가
-- [ ] DB에 있는 g5_write_ 테이블 모델 일괄 생성 커맨드 추가
+- [x] DB에 있는 g5_write_ 테이블 모델 일괄 생성 커맨드 추가
