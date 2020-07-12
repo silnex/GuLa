@@ -16,6 +16,13 @@ class G5CertHistory extends G5Model
     protected $table = 'g5_cert_history';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'cr_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

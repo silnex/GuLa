@@ -14,6 +14,13 @@ class G5MemberSocialProfiles extends G5Model
     protected $table = 'g5_member_social_profiles';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'mp_no';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

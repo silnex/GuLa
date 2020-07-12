@@ -14,6 +14,13 @@ class G5NewWin extends G5Model
     protected $table = 'g5_new_win';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'nw_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

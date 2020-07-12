@@ -17,6 +17,13 @@ class G5ShopWish extends G5Model
     protected $table = 'g5_shop_wish';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'wi_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

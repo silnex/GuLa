@@ -14,6 +14,13 @@ class G5ShopEvent extends G5Model
     protected $table = 'g5_shop_event';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'ev_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

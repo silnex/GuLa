@@ -18,6 +18,20 @@ class G5Board extends G5Model
     protected $table = 'g5_board';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'bo_table';
+
+    /**
+     * int가 아니기에 incrementing를 꺼야한다.
+     * 
+     * @var string
+     */
+    public $incrementing = false;
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

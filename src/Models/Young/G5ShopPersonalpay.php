@@ -16,6 +16,13 @@ class G5ShopPersonalpay extends G5Model
     protected $table = 'g5_shop_personalpay';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'pp_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

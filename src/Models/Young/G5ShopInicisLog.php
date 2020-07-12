@@ -14,6 +14,13 @@ class G5ShopInicisLog extends G5Model
     protected $table = 'g5_shop_inicis_log';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'oid';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

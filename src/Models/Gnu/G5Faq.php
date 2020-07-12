@@ -14,6 +14,13 @@ class G5Faq extends G5Model
     protected $table = 'g5_faq';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'fa_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

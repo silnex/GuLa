@@ -16,6 +16,13 @@ class G5ShopItemOption extends G5Model
     protected $table = 'g5_shop_item_option';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'io_no';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array

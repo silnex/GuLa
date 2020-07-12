@@ -14,6 +14,13 @@ class G5Autosave extends G5Model
     protected $table = 'g5_autosave';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'as_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
@@ -40,5 +47,4 @@ class G5Autosave extends G5Model
      * @var array
      */
     protected $dates = ['as_datetime'];
-
 }

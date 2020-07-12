@@ -14,6 +14,13 @@ class G5GroupMember extends G5Model
     protected $table = 'g5_group_member';
 
     /**
+     * PRIMARY KEY 설정
+     * 
+     * @var string
+     */
+    protected $primaryKey = 'gm_id';
+
+    /**
      * 할당(수정) 가능한 속성(컬럼)
      *
      * @var array
