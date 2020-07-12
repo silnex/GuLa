@@ -44,6 +44,7 @@ class GenerateG5WriteModel extends GeneratorCommand
 
         $content = file_get_contents($path);
         $content = str_replace('{{ table }}', $table, $content);
+        $content = str_replace('{{ bo_table }}', explode('g5_write_', $table)[1], $content);
 
         file_put_contents($path, $content);
     }

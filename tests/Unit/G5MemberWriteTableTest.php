@@ -21,7 +21,7 @@ class G5MemberWriteTableTest extends TestCase
         $this->assertFalse(class_exists($notExistsModel));
 
         $g5Member = new G5Member;
-        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
+        $admin = $g5Member->where('mb_id', '=', 'admin')->first();
         $admin->g5WriteFree()->first();
         $this->assertTrue(true);
     }
@@ -34,7 +34,7 @@ class G5MemberWriteTableTest extends TestCase
         })->toArray();
 
         $g5Member = new G5Member;
-        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
+        $admin = $g5Member->where('mb_id', '=', 'admin')->first();
         $admin->with($boards)->get();
         $this->assertTrue(true);
     }
@@ -51,7 +51,7 @@ class G5MemberWriteTableTest extends TestCase
         })->toArray();
 
         $g5Member = new G5Member;
-        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
+        $admin = $g5Member->where('mb_id', '=', 'admin')->first();
         $admin->with($boards)->get();
         $this->assertTrue(true);
     }
@@ -68,7 +68,7 @@ class G5MemberWriteTableTest extends TestCase
         })->toArray();
 
         $g5Member = new G5Member;
-        $admin = $g5Member->where('mb_id', '=', 'silnex')->first();
+        $admin = $g5Member->where('mb_id', '=', 'admin')->first();
         $this->assertNotNull($admin->g5WriteFree);
     }
 }

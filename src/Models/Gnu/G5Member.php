@@ -255,16 +255,22 @@ class G5Member extends G5Model
 
                     public function comments()
                     {
-                        return $this->hasMany(self::class, 'wr_parent', 'wr_id');
+                        return $this->hasMany(self::class, 'wr_parent', 'wr_id')->where('wr_is_comment', '=', '1');
                     }
 
                     public function parent()
                     {
                         if ($this->wr_is_comment) {
-                            return $this->belongsTo(self::class, 'wr_id', 'wr_parent');
+                            return $this->belongsTo(self::class, 'wr_id', 'wr_parent')->where('wr_is_comment', '=', '0');
                         } else {
                             throw new \Exception("해당 글은 댓글이 아닙니다.");
                         }
+                    }
+
+                    public function files()
+                    {
+                        $bo_table = strtolower(explode('g5Write', self::class)[1]);
+                        return $this->hasMany(G5BoardFile::class, 'wr_id', 'wr_id')->where('bo_table', $bo_table);
                     }
                 };
                 $class = get_class($anonymousClass);
