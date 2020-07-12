@@ -1,3 +1,6 @@
+# v1.3.1
+ - G5BoardFile가 use 되지 않은 버그 수정
+
 # v1.3.0
  - AI가 적용된 테이블의 경우 primary key을 설정
  - G5Write의 생성 stub에 files 메소드를 추가
