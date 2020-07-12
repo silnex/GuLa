@@ -3,6 +3,7 @@
 namespace {{ namespace }};
 
 use SilNex\GuLa\G5Model;
+use SilNex\GuLa\Models\Gnu\G5BoardFile;
 use SilNex\GuLa\Traits\BelongToG5Member;
 
 class {{ class }} extends G5Model

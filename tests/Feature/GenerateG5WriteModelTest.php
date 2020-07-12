@@ -27,6 +27,7 @@ class GenerateG5WriteModelTest extends TestCase
 namespace App\G5Models;
 
 use SilNex\GuLa\G5Model;
+use SilNex\GuLa\Models\Gnu\G5BoardFile;
 use SilNex\GuLa\Traits\BelongToG5Member;
 
 class G5WriteFree extends G5Model
