@@ -1,3 +1,8 @@
+# v1.3.0
+ - AI가 적용된 테이블의 경우 primary key을 설정
+ - G5Write의 생성 stub에 files 메소드를 추가
+ - G5BoardFiles 모델과 릴레이션
+
 # v1.2.1
  - G5Write에서 get relation value가 동작하지 않는 문제 해결
 

@@ -76,7 +76,8 @@ if (!class_exists($notExistsModel)) {
 
 ### 자동 릴레이션
 그누보드에선 새로운 게시판을 만들때 마다 `g5_write_`으로 시작하는 테이블이 생성됩니다.
-GuLa에선 이를 자동으로 릴레이션 해줍니다.
+GuLa에선 이를 자동으로 릴레이션 해줍니다.  
+```테이블 이름이 소문자, _, 숫자인 경우에만 자동 인식이 가능합니다.```
 ```php
 <?php
 use SilNex\GuLa\Models\Gnu\G5Member;
@@ -147,7 +148,7 @@ class G5WriteFree extends G5Model
      */
     public function comments()
     {
-        return $this->hasMany({{ class }}::class, 'wr_parent', 'wr_id');
+        return $this->hasMany(G5WriteFree::class, 'wr_parent', 'wr_id')->where('wr_is_comment', '=', '1');;
     }
 
     /**
@@ -156,16 +157,25 @@ class G5WriteFree extends G5Model
     public function parent()
     {
         if ($this->wr_is_comment) {
-            return $this->belongsTo({{ class }}::class, 'wr_id', 'wr_parent');
+            return $this->belongsTo(G5WriteFree::class, 'wr_id', 'wr_parent')->where('wr_is_comment', '=', '0');;
         } else {
             throw new \Exception("해당 글은 댓글이 아닙니다.");
         }
     }
+
+    /**
+     * 게시판에 첨부된 파일을 가져옴
+     */
+    public function files()
+    {
+        return $this->hasMany(G5BoardFile::class, 'wr_id', 'wr_id')->where('bo_table', $this->bo_table);
+    }
 }
 
 // Using
-$g5WriteFree = new G5Writ1eFree;
+$g5WriteFree = new G5WriteFree;
 $g5WriteFree->comments();
+$g5WriteFree->first()->files();
 ```
 
 #### g5_board테이블에 있는 모든 게시판 생성
@@ -183,4 +193,4 @@ $g5WriteFree->comments();
 - [x] 커스텀 모델 artisan:make 커맨드 추가
 - [x] DB에 있는 g5_write_ 테이블 모델 일괄 생성 커맨드 추가
 - [x] 테이블별 primaryKey 설정
-- [ ] G5Write Model과 G5BoardFile의 연결
+- [x] G5Write Model과 G5BoardFile의 연결
