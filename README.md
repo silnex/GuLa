@@ -182,3 +182,5 @@ $g5WriteFree->comments();
 - [x] g5_write 테이블 자동 릴레이션
 - [x] 커스텀 모델 artisan:make 커맨드 추가
 - [x] DB에 있는 g5_write_ 테이블 모델 일괄 생성 커맨드 추가
+- [ ] 테이블별 primaryKey 설정
+- [ ] G5Write Model과 G5BoardFile의 연결
